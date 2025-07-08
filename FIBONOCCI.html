@@ -1,0 +1,52 @@
+try.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fibonacci</title>
+  </head>
+  <body>
+    <h1>finfing first n fibonocci numbers</h1>
+    <button onclick="fibonacci()">click for fibonacci</button>
+    <button onclick="square()">click for square</button>
+  </body>
+  <script>
+    function fibonacci() {
+      let n = prompt("eneter a number for fib");
+      if (isNaN(n)) {
+        alert("enter a valid input");
+      } else {
+        let output = "the first n fib numbers are: ";
+        let a = 0,
+          b = 1,
+          c;
+        for (let i = 0; i < n; i++) {
+          if (i == 0) {
+            output += a;
+          } else if (i == 1) {
+            output += ", " + b;
+          } else {
+            c = a + b;
+            output += ", " + c;
+            a = b;
+            b = c;
+          }
+        }
+        alert(output);
+      }
+    }
+    function square() {
+      let n = prompt("enter a number for suare");
+      if (isNaN(n)) {
+        alert("enter a valid detail");
+      } else {
+        let output = "number \t square\n";
+        for (let i = 0; i <= n; i++) {
+          output += i + "\t" + i * i + "\n";
+        }
+        alert(output);
+      }
+    }
+  </script>
+</html>

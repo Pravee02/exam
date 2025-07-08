@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="agriConnectApp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgriConnect - Register</title>
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      :root {
+        --primary-color: #4caf50;
+        --secondary-color: #8bc34a;
+        --dark-color: #dba70b;
+        --light-color: #e8f5e9;
+        --text-color: #333;
+      }
+
+      body {
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3");
+        background-size: cover;
+        background-position: center;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .register-container {
+        background-color: rgba(255, 255, 255, 0.7); /* Updated transparency */
+        border-radius: 10px;
+        width: 100%;
+        max-width: 600px;
+        padding: 40px 30px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .brand {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .brand h1 {
+        color: var(--dark-color);
+        font-size: 32px;
+        margin-bottom: 5px;
+      }
+
+      .brand h1 span {
+        color: var(--primary-color);
+      }
+
+      .brand p {
+        color: #555;
+        font-size: 14px;
+      }
+
+      .input-row {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .input-row {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+        flex: 1;
+      }
+
+      .input-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-color);
+        font-weight: 500;
+      }
+
+      .input-group input,
+      .input-group select {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+
+      .input-group input:focus,
+      .input-group select:focus {
+        border-color: var(--primary-color);
+        outline: none;
+      }
+
+      .terms {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+      }
+
+      .terms input {
+        margin-right: 10px;
+        margin-top: 5px;
+      }
+
+      .register-btn {
+        width: 100%;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 14px;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .btn {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        width: 50%;
+      }
+
+      .register-btn:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      .login-link {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .login-link a {
+        color: var(--dark-color);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .login-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script>
+      var app = angular.module("agriConnectApp", []);
+      app.controller("RegisterController", function ($scope) {
+        $scope.user = {};
+        $scope.submitForm = function () {
+          if ($scope.registerForm.$valid) {
+            alert("Form submitted successfully!");
+            console.log($scope.user);
+          } else {
+            alert("please fill the all fields");
+          }
+        };
+      });
+    </script>
+  </head>
+  <body ng-controller="RegisterController">
+    <div class="register-container">
+      <div class="brand">
+        <h1>Agri<span>Connect</span></h1>
+      </div>
+
+      <form name="registerForm" ng-submit="submitForm()" novalidate>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              ng-model="user.firstName"
+              placeholder="Enter your first name"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              ng-model="user.lastName"
+              placeholder="Enter your last name"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            ng-model="user.email"
+            placeholder="Enter your email address"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            ng-model="user.phone"
+            placeholder="Enter your phone number"
+            required
+          />
+        </div>
+
+        <div class="input-group">
+          <label for="userType">I am a:</label>
+          <select id="userType" ng-model="user.userType" required>
+            <option value="" disabled selected>Select your role</option>
+            <option value="farmer">Farmer</option>
+            <option value="consumer">Consumer</option>
+            <option value="both">Both</option>
+          </select>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              ng-model="user.password"
+              placeholder="Create a password"
+              required
+            />
+          </div>
+
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              ng-model="user.confirmPassword"
+              placeholder="Confirm your password"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="terms">
+          <input type="checkbox" id="terms" ng-model="user.terms" required />
+          <label for="terms"
+            >I agree to the Terms of Service and Privacy Policy of
+            AgriConnect.</label
+          >
+        </div>
+
+        <button type="submit" class="register-btn">Create Account</button
+        ><br /><br />
+        <a href="index1.html" class="btn">Back to Home</a>
+      </form>
+    </div>
+  </body>
+</html>
