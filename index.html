@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+
+  <body>
+    <div ng-app="">
+      <p>my first expressoion:{{5+5}}</p>
+      <p>Name: <input type="text" ng-model="name" /></p>
+      <p ng-bind="name"></p>
+      <p>Name: <input type="text" ng-model="name" /></p>
+      <p>{{name}}</p>
+    
+
+    <div ng-app="" ng-init="firstName='PRAVEENM'">
+      <p>the name is <span ng-bind="firstName"></span></p>
+    </div>
+
+    <div ng-app="" ng-init="myCol='lightblue'">
+      <input style="background-color:{{myCol}}" ng-model="myCol" />
+    </div>
+
+    <div ng-app="" ng-init="names=['jani','pavansinse','speed']">
+      <ul>
+        <li ng-repeat="x in names">{{x}}</li>
+      </ul>
+    </div>
+    <div ng-app="">
+      <p>Input something in the input box:</p>
+      <p>First Name: <input type="text" ng-model="firstName" /></p>
+      <p>Second Name: <input type="text" ng-model="secondName" /></p>
+      <p>Full Name: {{firstName}} {{secondName}}</p>
+    </div>
+
+    <div ng-app="" ="myApp" ng-controller="myCtrl">
+      name:<input ng-model="name" />
+      <p>My Name is:{{name}}</p>
+    </div>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+      Name: <input ng-model="name" />
+      <h1>You entered: {{name}}</h1>
+    </div>
+
+    <script>
+      var app = angular.module("myApp", []);
+      app.controller("myCtrl", function ($scope) {
+        $scope.name = "";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": "../agri connect"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {
+    "git.ignoreLimitWarning": true,
+    "liveServer.settings.multiRootWorkspaceName": "basics"
+  }
+}
